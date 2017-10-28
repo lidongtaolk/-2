@@ -1,0 +1,59 @@
+<!Doctype html>
+<html>
+  <head>
+    <title>倒计时</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+	<meta http-equiv="Page_Enter" content="revealTrans(duration=1.0,transtion=0)">
+	<link href="倒计时样式表2.css" rel="stylesheet" type="text/css"/>
+	<script type="text/javascript">
+	function set()
+	{
+	  var message=confirm("是否开始设置时间？");
+	  if(message==true)
+	  {
+			  var mes1=prompt("请输入终止时间")
+			  if(mes1!=null)
+			  { function set1()
+			    {
+			    var EndTime= new Date(mes1); //截止时间 
+				var NowTime = new Date();
+				var t=EndTime.getTime()-NowTime.getTime();
+				
+				var d=Math.floor(t/1000/60/60/24); 
+                var h=Math.floor(t/1000/60/60%24); 
+                var m=Math.floor(t/1000/60%60); 
+                var s=Math.floor(t/1000%60);
+				
+				document.getElementById("t_d").innerHTML = d;
+                document.getElementById("t_h").innerHTML = h;
+                document.getElementById("t_i").innerHTML = m;
+                document.getElementById("t_s").innerHTML = s;
+			    }
+				var i = setInterval(set1,1000);
+			  }
+	  }
+	            
+	}
+	function set2()
+              {
+	            var message=confirm("是否重置？")
+				if(message==true)
+				{
+				  window.open('file:///C:/Users/li/Desktop/web前端开发/倒计时2.html','_self');
+				}
+			  }
+    </script>
+  </head>
+  <body>
+  <span id="t_d">00</span><p>日</p>
+  <span id="t_h">00</span><p>时</p>
+  <span id="t_i">00</span><p>分</p>
+  <span id="t_s">00</span><p>秒</p>
+  <form id="form1">
+    <input type="button" value="请设置时间" onclick="set()"/>
+  </form>
+  <form id="form2">
+    <input type="button" value="重置清零" onclick="set2()" />
+  </form>
+  </body>
+</html> 

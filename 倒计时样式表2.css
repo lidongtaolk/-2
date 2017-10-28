@@ -1,0 +1,75 @@
+body{background-image:url(timg.jpg);
+     background-repeat:repeat;
+	 background-color:rgb(176,220,213);
+	 position:relative;
+	 width:280px;
+	 }
+/*设置背景图片,定位*/
+#t_d{background-color:rgb(255,255,255);
+     border:solid 2px blue;
+	 font-size:72px;
+	 position:relative;
+	 top:200px;
+	 left:0px;
+	 margin:0px;
+	 }
+#t_d+p{
+        font-size:72px;
+        font-weight:200%;
+        color:rgb(255,0,0);
+		position:relative;
+	top:110px;
+	    left:92px;
+	 margin:0px;
+     }
+#t_h{background-color:rgb(255,255,255);
+     border:solid 2px blue;
+     font-size:72px;
+	 position:relative;
+	 top:32px;
+	 left:190px;
+	 margin:0px;
+	 }
+#t_h+p{
+        font-size:72px;
+        font-weight:200%;
+        color:rgb(255,0,0);
+        position:relative;
+	   top:-55px;
+	   left:280px;
+        margin:0px;		
+     }
+#t_i{background-color:rgb(255,255,255);
+     border:solid 2px blue;
+	 font-size:72px;
+	 position:relative;
+	 top:-135px;
+	 left:370px;
+	 margin:0px;
+	 }
+#t_i+p{
+        font-size:72px;
+        font-weight:200%;
+        color:rgb(255,0,0);
+        position:relative;
+	 top:-220px;
+	 left:460px;
+     margin:0px;	 
+     }
+#t_s{background-color:rgb(255,255,255);
+     border:solid 2px blue;
+	 font-size:72px;
+	 position:relative;
+	top:-305px;
+	 left:550px;
+	 margin:0px;
+	 }
+#t_s+p{
+        font-size:72px;
+        font-weight:200%;
+        color:rgb(255,0,0);
+        position:relative;
+	 top:-390px;
+	    left:640px;	
+     margin:0px;	 
+     }
