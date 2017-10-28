@@ -77,6 +77,14 @@
 		  left:50px;
 		  font-size:100px;
 		}
+		
+		.time
+		{
+		  position:absolute;
+		  top:40px;
+		  left:80px;
+		}
+		
 		#form1
 		{
 		  float:left;
@@ -88,6 +96,11 @@
 		  float:right;
 		  position:absolute;
 		  left:380px;
+		}
+		#form3
+		{
+		  position：absolute;
+		  left :200px;
 		}
 		
 		header:before,
@@ -135,51 +148,58 @@
 		}
     </style>
 	<script type="text/javascript">
-	function set()
+	
+	var mes1;
+	var i;
+	function set1()
 	{
-	  var message=confirm("是否开始设置时间？");
-	  if(message==true)
-	  {
-			  var mes1=prompt("请输入终止时间")
-			  if(mes1!=null)
-			  { function set1()
-			    {
-			    var EndTime= new Date(mes1); //截止时间 
-				var NowTime = new Date();
-				var t=EndTime.getTime()-NowTime.getTime();
-				
-				var d=Math.floor(t/1000/60/60/24); 
-                var h=Math.floor(t/1000/60/60%24); 
-                var m=Math.floor(t/1000/60%60); 
-                var s=Math.floor(t/1000%60);
+	  
+			  mes1=prompt("请输入终止时间");
+	          if(mes1!=null){alert("设置成功")};
+			    
+	};
+    function clock()	
+	{
+		      var EndTime= new Date(mes1); //截止时间 
+		      var NowTime = new Date();
+	          var t=EndTime.getTime()-NowTime.getTime();
+			  
+			  var d=Math.floor(t/1000/60/60/24); 
+              var h=Math.floor(t/1000/60/60%24); 
+              var m=Math.floor(t/1000/60%60); 
+              var s=Math.floor(t/1000%60);
 				
 				document.getElementById("t_d").innerHTML = d;
                 document.getElementById("t_h").innerHTML = h;
                 document.getElementById("t_i").innerHTML = m;
                 document.getElementById("t_s").innerHTML = s;
-			    }
-				var i = setInterval(set1,1000);
-			  }
-	  }
+	};	
+	function set2(){		   
+				i = setInterval(clock,1000);
+			  };
+	  
 	            
-	}
-	function set2()
+	
+	function set3()
               {
 	            var message=confirm("是否重置？")
 				if(message==true)
 				{
 				  window.open('倒计时终稿！！！.html','_self');
 				}
-			  }
+			  };
     </script>
 </head>
 <body style="background-image:url(背景2.jpg);">
 <header>
   <form id="form1" >
-    <input type="button" value="请设置时间" onclick="set()" class="button"/>
+    <input type="button" value="请设置时间" onclick="set1()" class="button"/>
   </form>
-  <form id="form2" >
-    <input type="button" value="重置清零" onclick="set2()" class="button"/>
+  <form id="form2">
+    <input type="button" value="重置清零" onclick="set3()" class="button"/>
+  </form>
+  <form id="form3">
+    <input type="button" value="开始计时" onclick="set2()" class="button"/>
   </form>
 </header>
 
@@ -188,28 +208,28 @@
  <div class="box1">
     <div class="box2">
         <div class="box3" style="background-color:rgba(255,255,255,0.6);">
-		<span id="t_d">00</span>
+		<p class="time">天</p><span id="t_d">00</span>
 		</div>
     </div>
  </div>
  <div class="box1">
     <div class="box2">
         <div class="box3" style="background-color:rgba(255,255,255,0.6);">
-		<span id="t_h">00</span>
+		<p class="time">时</p><span id="t_h">00</span>
 		</div>
     </div>
  </div>
  <div class="box1">
     <div class="box2">
         <div class="box3"  style="background-color:rgba(255,255,255,0.6);">
-		<span id="t_i">00</span>
+		<p class="time">分</p><span id="t_i">00</span>
 		</div>
     </div>
  </div>
  <div class="box1">
     <div class="box2">
         <div class="box3" style="background-color:rgba(255,255,255,0.6);">
-		<span id="t_s">00</span>
+		<p class="time">秒</p><span id="t_s">00</span>
 		</div>
     </div>
  </div>
