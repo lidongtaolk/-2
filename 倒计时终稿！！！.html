@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>倒计时</title>
+    <style type="text/css">
+        body, div, img
+        {
+            margin: 0;
+            padding: 0;
+        }
+		header
+		{
+		  position:relative;
+		  margin:0 auto;
+		  padding:0;
+		  width:280px;
+		}
+		div
+		{
+		    position:relative;
+		}
+        body
+        {
+            font-size: 12px;
+            background-color: #DDD;
+            min-width: 1200px;
+	    }
+        
+		/*设置六边形*/
+		.box1, .box2, .box3
+        {
+            width: 200px;
+            height: 250px;
+            overflow: hidden;
+        }
+        .box1, .box2
+        {
+            visibility: hidden;
+        }
+        .box1
+        {
+            transform: rotate(120deg);
+			float:left;
+            margin-left: 10px;
+            -ms-transform: rotate(120deg);
+            -moz-transform: rotate(120deg);
+            -webkit-transform: rotate(120deg);
+			top:200px;
+			left:156px;
+        }
+        .box2
+        {
+            transform: rotate(-60deg);
+            -ms-transform: rotate(-60deg);
+            -moz-transform: rotate(-60deg);
+            -webkit-transform: rotate(-60deg);
+			
+        }
+        .box3
+        {
+            transform: rotate(-60deg);
+            -ms-transform: rotate(-60deg);
+            -moz-transform: rotate(-60deg);
+            -webkit-transform: rotate(-60deg);
+            visibility: visible;
+			display:block;
+			border:solid 2px red;
+        }
+		/*六边形结束*/
+		
+		
+		span
+		{
+		  position:absolute;
+		  top:70px;
+		  left:50px;
+		  font-size:100px;
+		}
+		#form1
+		{
+		  float:left;
+		  position:absolute;
+		  left:-350px;
+		}
+	    #form2
+		{
+		  float:right;
+		  position:absolute;
+		  left:380px;
+		}
+		
+		header:before,
+		header:after
+		{
+		  content:"";
+		  display:table;
+		}
+		header:after
+		{
+		  clear:both;
+		}
+		
+		.button
+		{
+		  cursor:pointer;
+		  background-color: #4CAF50; /* Green */
+          border: none;
+          color: white;
+          padding: 15px 32px;
+          text-align: center;
+		  display: inline-block;
+          text-decoration: none;
+          font-size: 16px;
+		}
+		aside
+		{
+		 position:relative;
+		 left:-656px;
+		 top:450px;
+		 border-top:solid 2px green;
+		 display:block;
+		}
+		p
+		{
+         padding:0;
+		 margin:0px;
+		 padding:0px;
+		 font-size:25px;
+		}
+		p:first-letter
+		{
+		 margin:0;
+		 font-size:50px;
+		}
+    </style>
+	<script type="text/javascript">
+	function set()
+	{
+	  var message=confirm("是否开始设置时间？");
+	  if(message==true)
+	  {
+			  var mes1=prompt("请输入终止时间")
+			  if(mes1!=null)
+			  { function set1()
+			    {
+			    var EndTime= new Date(mes1); //截止时间 
+				var NowTime = new Date();
+				var t=EndTime.getTime()-NowTime.getTime();
+				
+				var d=Math.floor(t/1000/60/60/24); 
+                var h=Math.floor(t/1000/60/60%24); 
+                var m=Math.floor(t/1000/60%60); 
+                var s=Math.floor(t/1000%60);
+				
+				document.getElementById("t_d").innerHTML = d;
+                document.getElementById("t_h").innerHTML = h;
+                document.getElementById("t_i").innerHTML = m;
+                document.getElementById("t_s").innerHTML = s;
+			    }
+				var i = setInterval(set1,1000);
+			  }
+	  }
+	            
+	}
+	function set2()
+              {
+	            var message=confirm("是否重置？")
+				if(message==true)
+				{
+				  window.open('file:///C:/Users/li/Desktop/web前端开发/六边形.html','_self');
+				}
+			  }
+    </script>
+</head>
+<body style="background-image:url(背景2.jpg);">
+<header>
+  <form id="form1" >
+    <input type="button" value="请设置时间" onclick="set()" class="button"/>
+  </form>
+  <form id="form2" >
+    <input type="button" value="重置清零" onclick="set2()" class="button"/>
+  </form>
+</header>
+
+
+<article>
+ <div class="box1">
+    <div class="box2">
+        <div class="box3" style="background-color:rgba(255,255,255,0.6);">
+		<span id="t_d">00</span>
+		</div>
+    </div>
+ </div>
+ <div class="box1">
+    <div class="box2">
+        <div class="box3" style="background-color:rgba(255,255,255,0.6);">
+		<span id="t_h">00</span>
+		</div>
+    </div>
+ </div>
+ <div class="box1">
+    <div class="box2">
+        <div class="box3"  style="background-color:rgba(255,255,255,0.6);">
+		<span id="t_i">00</span>
+		</div>
+    </div>
+ </div>
+ <div class="box1">
+    <div class="box2">
+        <div class="box3" style="background-color:rgba(255,255,255,0.6);">
+		<span id="t_s">00</span>
+		</div>
+    </div>
+ </div>
+</article>
+
+<aside>
+<p>注：六边形图标从左到右分别为 日 时 分 秒，时间输入格式为 例：2018/10/22 10:00:00;输入时间需在当前时间之后</p>
+</aside>
+</body>
+</html>
